@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://davivienda.com/ClienteWSDL/" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://davivienda.com/ClienteWSDL/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <xsd:element ibmSchExtn:docRoot="true" name="SolicitudClienteRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="idCliente" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="SolicitudClienteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idCliente" type="xsd:string"/>
+          	<xsd:element name="nombreCliente" type="xsd:string"/>
+          	<xsd:element name="apellidoCliente" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
