@@ -40,7 +40,7 @@ pipeline {
 			}
 		}
 		}
-		
+		//stage deploy
 		stage('Deploy') {
 		steps
 		 {
