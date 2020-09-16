@@ -23,6 +23,7 @@ pipeline {
 		  }
 		}
 		
+		 //stage upload
 		stage('Upload') {
 		steps {
 		script {
