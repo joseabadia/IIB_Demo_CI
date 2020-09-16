@@ -12,7 +12,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/joseabadia/IIB_Demo_CI.git']]])
             }
         }
-        
+        //stage build
 		stage('Build') {
 		steps
 		 {
