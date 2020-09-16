@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<project name="IIB_Demo_Davivienda" default="buildBAR" basedir=".">
+
+ <target name="buildBAR" description="">
+  <property file="build.properties" />
+  <property name="home" value="${iib.home}"/>
+  <property name="workspaces.dir" value="${basedir}" />
+  <property name="bar.file" value="${iib.bar.path}${iib.bar.name}"/>
+  
+  <antcall target="mqsicreatebar.buildbar"/>
+</target>
+
+<target name="mqsicreatebar.buildbar">
+	<echo message="Building broker archive file : ${iib.bar.name} "/>
+  <exec executable="${home}\tools\mqsicreatebar.exe" spawn="false">
+	<arg value="-data" />
+	<arg value="${workspaces.dir}" />
+
+	<arg value="-b" />
+	<arg value="${bar.file}" />
+
+	<arg value="-cleanBuild" />
+	<arg value="-deployAsSource" />
+
+	<arg value="-a" />
+	<arg value="${iib.application.name}" />
+ 
+  </exec>
+  <echo message="completed building broker archive file :- ${bar.name}" />
+</target>
+
+
+<target name="deployBAR" description="">
+   
+  <property file="build.properties" />
+  <property name="home" value="${iib.home}"/>
+  <property name="bar.file" value="${iib.bar.path}${iib.bar.name}"/>
+  
+  <property name="inode" value="${iib.node}" />
+  <property name="host.name" value="${iib.host}" />
+  <property name="port" value="${iib.port}" />
+  <property name="int.server" value="${iib.int.server}" />
+  
+  <property name="mqsi.deployw.param" value="/C" />
+  <property name="mqsi.deployw" value="mqsideployw.bat" />
+   
+  <antcall target="mqsideploy.deploybar"/>
+</target>
+
+
+<target name="mqsideploy.deploybar">	
+	<property name="params" value="${mqsi.deployw.param} ${mqsi.deployw} 
+	'${home}${file.separator}server${file.separator}bin' ${inode} ${host.name} ${port} ${bar.file} ${int.server}" />
+	<echo message="Params: ${params}" />	
+	
+	<exec executable="cmd.exe" failonerror="true">
+		   <arg line="${params}" />
+	</exec> 
+	
+</target>
+
+</project>
