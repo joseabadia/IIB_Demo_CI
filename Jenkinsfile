@@ -5,7 +5,7 @@ pipeline {
 	ant_build = "build.xml"
 	}
     stages {
-	    
+	    //checkout Git
         stage('Checkout') { 
             
             steps {
