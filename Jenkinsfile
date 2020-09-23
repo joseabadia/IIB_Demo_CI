@@ -34,7 +34,6 @@ pipeline {
 			"target": "jenkins/"
 			}]
 			}"""
- 
 			server.upload(uploadSpec)
 			
 			}
