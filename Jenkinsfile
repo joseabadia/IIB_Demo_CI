@@ -18,7 +18,8 @@ pipeline {
 		 {
 			withAnt(installation: 'apache-ant-1.10.8', jdk: 'jdk8'){
 			// some block
-			bat "ant -f ${ant_build}"
+			bat "ant -f  ${ant_build} -Dbuild_parameter=${BUILD_NUMBER}"
+			
 			}
 		  }
 		}
