@@ -9,8 +9,6 @@
   <property name="workspaces.dir" value="${basedir}" />
   <property name="bar.file" value="${iib.bar.path}${iib.bar.name}-${iib.version.artifact}.${env.BUILD_NUMBER}.bar"/>
   
-  
-  <echo>BUILD_NUMBER: ${env.BUILD_NUMBER}</echo>
   <antcall target="mqsicreatebar.buildbar"/>
 </target>
 
